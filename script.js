@@ -43,9 +43,9 @@ function main(){
     composer.addPass(bloomPass);
 
     // light settings
-    const light1 = new THREE.SpotLight(0xffffff, 2, 100, Math.PI / 2, 0.1, 0.9)
-    light1.position.y = camera.position.y + 3
-    light1.target.position.set(0, 0, 0); 
+    const light1 = new THREE.AmbientLight("#ffffff", 0.2, 100, Math.PI / 2, 0.1, 1.2)
+    // light1.position.y = camera.position.y + 3
+    // light1.target.position.set(0, 0, 0); 
     scene.add(light1)
     scene.add(light1.target); 
 
@@ -69,22 +69,6 @@ function main(){
     // const cube = new THREE.Mesh(geometry,material)
     // cube.position.y = -10
     // scene.add(cube)
-
-    const textureLoader = new THREE.TextureLoader();
-    const texture = textureLoader.load("imgs/gif.gif"); // 画像を読み込む
-
-
-    const material2 = new THREE.MeshStandardMaterial({
-        color: 0xffffff,
-        map: texture,
-        roughness: 0.1,       // Reduced for more shine
-        metalness: 0.2,       // Slight metallic feel
-        transparent: true,
-        opacity: 1,           // Full opacity
-        emissive: 0xffffff,   // Add white emissive glow
-        emissiveMap: texture, // Use same texture for emissive
-        emissiveIntensity: 0.4,  // Add moderate emissive glow
-    });
 
 
 
@@ -206,7 +190,49 @@ function main(){
 
     const particles = createParticles();
 
-    function makeInstance(index){
+
+    let cards = []
+
+
+    let counter = 0;
+
+    async function loadCards() {
+        try {
+            const response = await fetch('data.json'); // Ensure data.json is accessible
+            const data = await response.json();
+    
+            if (data.contents && Array.isArray(data.contents)) {
+                data.contents.forEach((item, index) => {
+                    counter++
+                    cards.push(makeInstance(index, item));
+                });
+            }
+        } catch (error) {
+            console.error("Error loading cards:", error);
+        }
+    }
+
+    loadCards()
+
+
+    function makeInstance(index,item){
+        let textureLoader = new THREE.TextureLoader();
+        let texture = textureLoader.load("imgs/"+item["img_path"]); // 画像を読み込む
+    
+    
+        let material2 = new THREE.MeshStandardMaterial({
+            color: 0xffffff,
+            map: texture,
+            roughness: 0.1,       // Reduced for more shine
+            metalness: 0.2,       // Slight metallic feel
+            transparent: true,
+            opacity: 1,           // Full opacity
+            emissive: 0xffffff,   // Add white emissive glow
+            emissiveMap: texture, // Use same texture for emissive
+            emissiveIntensity: 0.4,  // Add moderate emissive glow
+        });
+    
+    
         const boxWidth = 4.5;
         const boxHeight = 3;
         const boxDepth = 0.05;
@@ -229,7 +255,7 @@ function main(){
         
         // Use gentilis_regular font for a cursive look
         loader.load('https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/fonts/gentilis_bold.typeface.json', function (font) {
-            const geometry = new TextGeometry('Online', {
+            const geometry = new TextGeometry(item["title-text"], {
                 font: font,
                 size: 0.42,        // Even smaller size
                 depth: 0.005,      // Much thinner depth
@@ -237,17 +263,17 @@ function main(){
                 bevelEnabled: true,
                 bevelThickness: 0.003, // Smaller bevel
                 bevelSize: 0.003,      // Smaller bevel
-                bevelSegments: 5
+                bevelSegments: 5,
             });
 
             geometry.center();
 
             // Enhanced glowing material for text with adjusted colors
             const material = new THREE.MeshPhongMaterial({
-                color: 0x00ffff,
+                color: item["color"],
                 shininess: 100,
-                specular: 0x151a48,
-                emissive: 0x0033ff,
+                specular: item["color"],
+                emissive: item["color"],
                 emissiveIntensity: 1.2,  // Increased glow to compensate for thinner text
                 transparent: true,
                 opacity: 0.95
@@ -317,25 +343,6 @@ function main(){
         return cube;
     }
 
-    const cards = [
-        makeInstance(0),
-        makeInstance(1),
-        makeInstance(2),
-        makeInstance(3),
-        makeInstance(4),
-        makeInstance(5),
-        makeInstance(6),
-        makeInstance(7),
-        makeInstance(8),
-        makeInstance(9),
-        makeInstance(10),
-        makeInstance(11),
-        makeInstance(12),
-        makeInstance(13),
-        makeInstance(14),
-    ]
-
-
 
     // resize function
     function resizeRendererToDisplaySize(render){
@@ -355,6 +362,9 @@ function main(){
         
         if(totalScroll < 0){
             totalScroll = 0;
+        }
+        else if(totalScroll > (counter-1)*1047){
+            totalScroll = (counter-1)*1047
         }
         targetAngle = -totalScroll * 0.001;
     });
@@ -378,15 +388,15 @@ function main(){
         camera.position.y = currentAngle * 1.91;
         camera.lookAt(0, camera.position.y, 0);
 
-        // ライトの位置更新
-        light1.position.x = Math.cos(currentAngle) * (radius + 3);
-        light1.position.z = Math.sin(currentAngle) * (radius + 3);
-        light1.position.y = camera.position.y + 3;
-        light1.target.position.set(
-            Math.cos(currentAngle) * (radius - 2),
-            camera.position.y,
-            Math.sin(currentAngle) * (radius - 2)
-        );
+        // // ライトの位置更新
+        // light1.position.x = Math.cos(currentAngle) * (radius + 8);
+        // light1.position.z = Math.sin(currentAngle) * (radius + 8);
+        // light1.position.y = camera.position.y + 3;
+        // light1.target.position.set(
+        //     Math.cos(currentAngle) * (radius - 2),
+        //     camera.position.y,
+        //     Math.sin(currentAngle) * (radius - 2)
+        // );
 
         //resize function
         if(resizeRendererToDisplaySize(renderer)){
