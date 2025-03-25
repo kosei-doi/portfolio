@@ -3,74 +3,74 @@
         {
             "title":"new_nishi_database",
             "title-text":"NEW!! Nishi DB",
-            "img_path":"new_nishi.png",
-            "color":"#ffffff"
+            "img_path":"new_db.png",
+            "color":"#ad0c0c"
         },
         {
             "title":"male_or_female_game",
             "title-text":"Male or Female name game",
-            "img_path":"m_or_f_game.png",
-            "color":"#dddddd"
+            "img_path":"m_or_f.png",
+            "color":"#fff838"
         },
         {
             "title":"new_website",
             "title-text":"NEW!! Website",
             "img_path":"new_website.png",
-            "color":"#aaaaaa"
+            "color":"#3450e3"
         },
         {
             "title":"nishi_database",
             "title-text":"Nishi DB",
-            "img_path":"nishi.png",
-            "color":"#888888"
+            "img_path":"db.png",
+            "color":"#cf1919"
         },
         {
             "title":"online_tetris",
             "title-text":"Online Tetris",
             "img_path":"online_tetris.png",
-            "color":"#666666"
+            "color":"#3bd90b"
         },
         {
             "title":"shishiodoshi",
             "title-text":"Shishiodoshi",
             "img_path":"shishiodoshi.png",
-            "color":"#444444"
+            "color":"#266912"
         },
         {
             "title":"website",
             "title-text":"Website",
             "img_path":"website.png",
-            "color":"#222222"
+            "color":"#003cb5"
         },
         {
             "title":"canoe_guys",
             "title-text":"Canoe Guys",
             "img_path":"canoe_guys.png",
-            "color":"#ffffff"
+            "color":"#cf0064"
         },
         {
             "title":"moji_tetris",
             "title-text":"Moji Tetris",
             "img_path":"moji_tetris.png",
-            "color":"#dddddd"
+            "color":"#06cc41"
         },
         {
             "title":"explorer_simplification",
             "title-text":"Simple explorer",
             "img_path":"explorer_simplification.png",
-            "color":"#aaaaaa"
+            "color":"#f09a37"
         },
         {
             "title":"keyboard_sounder",
             "title-text":"Keyboard Sounder",
             "img_path":"keyboard_sounder.png",
-            "color":"#888888"
+            "color":"#2ae8d8"
         },
         {
             "title":"modeling",
             "title-text":"Modeling",
             "img_path":"modeling.png",
-            "color":"#666666"
+            "color":"#17088a"
         }   
     ]
 }
