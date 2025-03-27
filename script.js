@@ -496,7 +496,7 @@ function main(){
         const touchY = event.touches[0].clientY;
         const deltaY = lastTouchY - touchY;
         
-        totalScroll += deltaY * 2; // Multiply by 2 to make scrolling more responsive
+        totalScroll += deltaY * 4; // Multiply by 2 to make scrolling more responsive
         
         if(totalScroll < 0){
             totalScroll = 0;
