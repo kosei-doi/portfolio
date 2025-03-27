@@ -477,10 +477,42 @@ function main(){
             totalScroll = 0;
         }
         else if(totalScroll > (counter-1)*1047){
-            totalScroll = (counter-1)*1047
+            totalScroll = (counter-1)*1047;
         }
         targetAngle = -totalScroll * 0.001;
     });
+
+    // Add touch event support for mobile devices
+    let touchStartY = 0;
+    let lastTouchY = 0;
+
+    window.addEventListener('touchstart', (event) => {
+        touchStartY = event.touches[0].clientY;
+        lastTouchY = touchStartY;
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (event) => {
+        event.preventDefault();
+        const touchY = event.touches[0].clientY;
+        const deltaY = lastTouchY - touchY;
+        
+        totalScroll += deltaY * 2; // Multiply by 2 to make scrolling more responsive
+        
+        if(totalScroll < 0){
+            totalScroll = 0;
+        }
+        else if(totalScroll > (counter-1)*1047){
+            totalScroll = (counter-1)*1047;
+        }
+        targetAngle = -totalScroll * 0.001;
+        
+        lastTouchY = touchY;
+    }, { passive: false });
+
+    window.addEventListener('touchend', () => {
+        touchStartY = 0;
+        lastTouchY = 0;
+    }, { passive: true });
 
     // 補間関数を追加
     function lerp(start, end, factor) {
@@ -503,7 +535,7 @@ function main(){
         });
 
         // カメラをY軸中心に回転させる
-        const radius = window.innerWidth <= 768 ? 12 : 7; // Larger radius for mobile devices
+        const radius = window.innerWidth <= 768 ? 10 : 7; // Larger radius for mobile devices
         camera.position.x = Math.cos(currentAngle) * radius;
         camera.position.z = Math.sin(currentAngle) * radius;
         camera.position.y = currentAngle * 1.433;  // Reduced vertical camera movement
