@@ -4,73 +4,85 @@
             "title":"new_nishi_database",
             "title-text":"NEW!! Nishi DB",
             "img_path":"new_db.png",
-            "color":"#ad0c0c"
+            "color":"#ad0c0c",
+            "link":"https://github.com/kosei-doi/nishi_db"
         },
         {
             "title":"male_or_female_game",
             "title-text":"Male or Female name game",
             "img_path":"m_or_f.png",
-            "color":"#fff838"
+            "color":"#fff838",
+            "link":"https://github.com/kosei-doi/m_or_f_game"
         },
         {
             "title":"new_website",
             "title-text":"NEW!! Website",
             "img_path":"new_website.png",
-            "color":"#3450e3"
+            "color":"#3450e3",
+            "link":"https://github.com/kosei-doi/new_website"
         },
         {
             "title":"nishi_database",
             "title-text":"Nishi DB",
             "img_path":"db.png",
-            "color":"#cf1919"
+            "color":"#cf1919",
+            "link":"https://github.com/kosei-doi/pre_nishi_db"
         },
         {
             "title":"online_tetris",
             "title-text":"Online Tetris",
             "img_path":"online_tetris.png",
-            "color":"#3bd90b"
+            "color":"#3bd90b",
+            "link":"https://github.com/kosei-doi/online_tetris"
         },
         {
             "title":"shishiodoshi",
             "title-text":"Shishiodoshi",
             "img_path":"shishiodoshi.png",
-            "color":"#266912"
+            "color":"#266912",
+            "link":"https://github.com/kosei-doi/shishiodoshi"
         },
         {
             "title":"website",
             "title-text":"Website",
             "img_path":"website.png",
-            "color":"#003cb5"
+            "color":"#003cb5",
+            "link":"https://github.com/kosei-doi/index/tree/main"
         },
         {
             "title":"canoe_guys",
             "title-text":"Canoe Guys",
             "img_path":"canoe_guys.png",
-            "color":"#cf0064"
+            "color":"#cf0064",
+            "link":"https://github.com/kosei-doi/shishiodoshi"
         },
         {
             "title":"moji_tetris",
             "title-text":"Moji Tetris",
             "img_path":"moji_tetris.png",
-            "color":"#06cc41"
+            "color":"#06cc41",
+            "link":"https://github.com/kosei-doi/moji-tetris"
         },
         {
             "title":"explorer_simplification",
             "title-text":"Simple explorer",
             "img_path":"explorer_simplification.png",
-            "color":"#f09a37"
+            "color":"#f09a37",
+            "link":"https://github.com/kosei-doi/simple_explorer"
         },
         {
             "title":"keyboard_sounder",
             "title-text":"Keyboard Sounder",
             "img_path":"keyboard_sounder.png",
-            "color":"#2ae8d8"
+            "color":"#2ae8d8",
+            "link":"https://github.com/kosei-doi/keyboard_sounder"
         },
         {
             "title":"modeling",
             "title-text":"Modeling",
             "img_path":"modeling.png",
-            "color":"#17088a"
+            "color":"#17088a",
+            "link":"https://github.com/kosei-doi/modeling"
         }   
     ]
 }
