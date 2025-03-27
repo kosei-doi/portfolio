@@ -417,8 +417,8 @@ function main(){
             // Position the group instead of individual mesh
             textGroup.position.x = Math.cos(-Math.PI / 3 * index) * (radius + 0.1);
             textGroup.position.z = Math.sin(-Math.PI / 3 * index) * (radius + 0.1);
-            textGroup.position.y = -index * 2 + 1.1;
-            textGroup.lookAt(0, -index * 2 + 1.1, 0);
+            textGroup.position.y = -index * 1.5 + 1.1;
+            textGroup.lookAt(0, -index * 1.5 + 1.1, 0);
             textGroup.rotateY(Math.PI);
 
             // Add animation
@@ -506,7 +506,7 @@ function main(){
         const radius = 7;
         camera.position.x = Math.cos(currentAngle) * radius;
         camera.position.z = Math.sin(currentAngle) * radius;
-        camera.position.y = currentAngle * 1.2;  // Reduced vertical camera movement
+        camera.position.y = currentAngle * 1.433;  // Reduced vertical camera movement
         camera.lookAt(0, camera.position.y, 0);
 
         // Update camera aspect ratio on resize
