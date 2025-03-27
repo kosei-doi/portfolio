@@ -503,7 +503,7 @@ function main(){
         });
 
         // カメラをY軸中心に回転させる
-        const radius = 7;
+        const radius = window.innerWidth <= 768 ? 12 : 7; // Larger radius for mobile devices
         camera.position.x = Math.cos(currentAngle) * radius;
         camera.position.z = Math.sin(currentAngle) * radius;
         camera.position.y = currentAngle * 1.433;  // Reduced vertical camera movement
